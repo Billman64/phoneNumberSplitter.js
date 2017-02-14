@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta type="text/html" charset="utf-8">
+<title>Bill Lugo - phone number string splitter</title>
+<style>
+.highlight:hover	{font-weight:bold; font-size:120%; background-color:yellow; text-overflow:ellipsis;}
+.error	{color:red; font-size:80%;}
+.inputColor {background-color:#ccccff;}
+.outputColor {background-color:#eeeeee;text-align:right;}
+.appTitle {font-size:150%;font-weight:bold;}
+</style>
+
+<script name="splitter" type="text/javascript">
+
+function splitNum()
+{
+// initialize //
+
+var phoneNum = document.getElementById("phoneNum").value;
+var tokens = phoneNum.split(" ");
+var areaCodeTextBox = document.getElementById("areaCode");
+var numberTextBox = document.getElementById("number");
+
+// process & output//
+areaCodeTextBox.value = tokens[0];
+numberTextBox.value=tokens[1];
+
+}
+
+
+function initiate()
+{
+var button = document.getElementById("splitButton");
+button.addEventListener("click", splitNum, false);
+}
+window.addEventListener("load", initiate, false);
+
+
+
+
+</script>
+</head>
+
+<body>
+
+<form action="#">
+
+<p class="appTitle">Phone number splitter
+by Bill Lugo<br></p>
+<table><tr class="inputColor"><td>Enter a phone number [in the form (555) 555-5555]</td>
+<td> <input id="phoneNum" type="phone" autofocus> </td> </tr>
+
+<tr class="inputColor"><td> <input id="splitButton" type="button" value="Split"> </td></tr>
+
+<tr class="outputColor"><td>Area code:</td> <td> <input id="areaCode" type="text" > </td></tr>
+<tr class="outputColor"><td>Number:</td> <td> <input id="number" type="text"> </td></tr>
+</table>
+
+</body>
+</html>
